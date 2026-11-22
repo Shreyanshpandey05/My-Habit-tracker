@@ -1,0 +1,132 @@
+/* Team Webify - Habit Tracker */
+/* colors: emerald green + off white */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Verdana, Arial, sans-serif;
+  color: #1f2d27;
+  background-color: #faf8f2;
+  /* leaf pattern as background image */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M20 90 Q20 50 60 40 Q60 80 20 90Z' fill='%23059669' fill-opacity='0.10'/%3E%3Cpath d='M80 50 Q90 20 115 15 Q110 45 80 50Z' fill='%23047857' fill-opacity='0.10'/%3E%3C/svg%3E");
+}
+
+header {
+  background: #047857;
+  color: #faf8f2;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+header h1 { margin: 0; font-size: 26px; }
+
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  background: #065f46;
+  color: #faf8f2;
+  font-size: 13px;
+}
+
+.hidden { display: none !important; }
+.error { color: #b91c1c; font-size: 14px; min-height: 18px; }
+
+/* login box and main box */
+.box, main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #faf8f2;
+  border: 2px solid #10b981;
+  border-radius: 10px;
+}
+.box { max-width: 380px; }
+
+/* form stuff */
+input, select {
+  width: 100%;
+  padding: 9px;
+  margin: 5px 0 10px;
+  border: 1px solid #6ee7b7;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+}
+label { font-size: 14px; font-weight: bold; }
+
+button {
+  background: #059669;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover { background: #047857; }
+button:focus, input:focus, select:focus { outline: 3px solid #fbbf24; }
+.grey { background: #6b7280; }
+header button { background: #faf8f2; color: #047857; }
+
+a { color: #047857; }
+
+/* tabs */
+nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+.tab { background: #d1fae5; color: #065f46; flex: 1; min-width: 120px; }
+.tab:hover, .tab.active { background: #059669; color: white; }
+
+.panel { display: none; }
+.panel.show { display: block; }
+
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.row > * { flex: 1; min-width: 140px; }
+
+/* habit cards */
+.habit {
+  background: white;
+  border-left: 6px solid #10b981;
+  padding: 10px 14px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+.habit.High { border-left-color: #dc2626; }
+.habit.Medium { border-left-color: #f59e0b; }
+.habit.Low { border-left-color: #10b981; }
+.habit.Done h4 { text-decoration: line-through; color: gray; }
+.habit h4 { margin: 0 0 5px; }
+.habit small { color: #555; }
+.habit button { margin: 8px 5px 0 0; padding: 6px 10px; font-size: 13px; }
+.del { background: #dc2626; }
+.del:hover { background: #991b1b; }
+
+/* reminder */
+#reminderBox {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+/* dashboard */
+.stat {
+  background: #d1fae5;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+}
+.stat b { display: block; font-size: 28px; color: #047857; }
+.bar { background: #d1fae5; height: 22px; border-radius: 11px; overflow: hidden; }
+#barFill { background: #059669; height: 100%; width: 0%; transition: width 0.5s; }
+
+/* small screens */
+@media (max-width: 600px) {
+  header h1 { font-size: 20px; }
+  .box, main { margin: 15px 10px; padding: 15px; }
+  .tab { min-width: 100%; }
+}

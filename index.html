@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker - Team Webify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>🌿 My Habit Tracker</h1>
+      <small>Made by Team Webify</small>
+    </div>
+    <button id="logoutBtn" class="hidden">🚪 Logout</button>
+  </header>
+
+  <!-- login / signup -->
+  <section id="authBox" class="box">
+    <h2 id="authTitle">🔐 Login</h2>
+    <input id="user" type="text" placeholder="Username">
+    <input id="pass" type="password" placeholder="Password">
+    <p id="authMsg" class="error"></p>
+    <button id="authBtn">Login</button>
+    <p>New here? <a href="#" id="switchLink">Sign up</a></p>
+  </section>
+
+  <!-- main app (shows after login) -->
+  <main id="app" class="hidden">
+    <p id="welcome"></p>
+    <div id="reminderBox" class="hidden"></div>
+
+    <!-- tabs open when you hover over them -->
+    <nav>
+      <button class="tab active" data-tab="addTab">➕ Add Habit</button>
+      <button class="tab" data-tab="listTab">📋 My Habits</button>
+      <button class="tab" data-tab="dashTab">📊 Dashboard</button>
+    </nav>
+
+    <!-- tab 1: add / edit -->
+    <div id="addTab" class="panel show">
+      <h2 id="formTitle">Add a new habit</h2>
+      <label>Habit name</label>
+      <input id="hName" type="text" placeholder="e.g. Drink 8 glasses of water">
+
+      <div class="row">
+        <div>
+          <label>Category</label>
+          <select id="hCat">
+            <option>Health</option>
+            <option>Study</option>
+            <option>Fitness</option>
+            <option>Personal</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div>
+          <label>Priority</label>
+          <select id="hPri">
+            <option>High</option>
+            <option selected>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Date</label>
+          <input id="hDate" type="date">
+        </div>
+        <div>
+          <label>Schedule</label>
+          <select id="hSch">
+            <option>Daily</option>
+            <option>Weekly</option>
+            <option>Once</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="formMsg" class="error"></p>
+      <button id="saveBtn">Save Habit</button>
+      <button id="cancelBtn" class="hidden grey">Cancel</button>
+    </div>
+
+    <!-- tab 2: list with search, filter, sort -->
+    <div id="listTab" class="panel">
+      <h2>My habits</h2>
+      <div class="row">
+        <input id="search" type="text" placeholder="🔍 Search habits...">
+        <select id="fCat">
+          <option value="All">All categories</option>
+          <option>Health</option>
+          <option>Study</option>
+          <option>Fitness</option>
+          <option>Personal</option>
+          <option>Other</option>
+        </select>
+        <select id="fStatus">
+          <option value="All">All status</option>
+          <option>Pending</option>
+          <option>In Progress</option>
+          <option>Done</option>
+        </select>
+        <select id="sortBy">
+          <option value="date">Sort by date</option>
+          <option value="priority">Sort by priority</option>
+          <option value="name">Sort by name</option>
+        </select>
+      </div>
+      <div id="habitList"></div>
+    </div>
+
+    <!-- tab 3: dashboard -->
+    <div id="dashTab" class="panel">
+      <h2>Progress summary</h2>
+      <div id="stats" class="row"></div>
+      <p>Overall progress: <b id="pct">0%</b></p>
+      <div class="bar"><div id="barFill"></div></div>
+      <h3>Habits by category</h3>
+      <div id="catStats"></div>
+    </div>
+  </main>
+
+  <footer>© 2026 Team Webify | HTML, CSS &amp; JavaScript project</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
